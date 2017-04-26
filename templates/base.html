@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <title>Главная</title>
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <link rel="stylesheet" href="//57st.net/store/css/base.css">
+        <script src="/store/init.js"></script>
+    </head>
+    <body>
+        <form class="dn" id="login_form">
+            {% csrf_token %}
+            {{ login_form }}
+            <input type="submit" value="login">
+        </form>
+
+        <form class="dn" id="upload_form">
+            {% csrf_token %}
+            {{ upload_form }}
+            <input type="submit" value="upload">
+        </form>
+
+        <div class="dn" id="list"></div>
+
+        <script>
+            urls = {'files': '{% url 'files-list' %}',
+                    'file': '{% url 'files-detail' 0 %}'};
+            is_authenticated = {{ request.user.is_authenticated|yesno:"true,false" }};
+        </script>
+    </body>
+</html>
