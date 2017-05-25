@@ -128,11 +128,6 @@ LOGGING = {
             'level': 'ERROR',
             'propagate': True,
         },
-        '': {
-            'handlers': ('file',),
-            'level': 'ERROR',
-            'propagate': True,
-        },
     },
 }
 REST_FRAMEWORK = {
