@@ -14,6 +14,10 @@ class FileTestCase(TestCase):
     def setUp(self):
         self.path = os.path.join(settings.MEDIA_ROOT,
                                  datetime.now().strftime(File.UPLOAD_TO))
+
+        if not os.path.isdir(self.path):
+            os.makedirs(self.path)
+
         self.total_files = len(os.listdir(self.path))
 
     def tst_anonymous_user(self):
